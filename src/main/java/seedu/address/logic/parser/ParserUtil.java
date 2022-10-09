@@ -51,6 +51,21 @@ public class ParserUtil {
     }
 
     /**
+     * Parses a {@code String name} into a tag {@code Name}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code name} is invalid.
+     */
+    public static seedu.address.model.tag.Name parseTagName(String name) throws ParseException {
+        requireNonNull(name);
+        String trimmedName = name.trim();
+        if (!Name.isValidName(trimmedName)) {
+            throw new ParseException(seedu.address.model.tag.Name.MESSAGE_CONSTRAINTS);
+        }
+        return new seedu.address.model.tag.Name(trimmedName);
+    }
+
+    /**
      * Parses a {@code String phone} into a {@code Phone}.
      * Leading and trailing whitespaces will be trimmed.
      *
