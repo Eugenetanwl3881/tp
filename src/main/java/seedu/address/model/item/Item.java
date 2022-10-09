@@ -1,8 +1,11 @@
 package seedu.address.model.item;
 
+import seedu.address.model.tag.Tag;
+
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Objects;
+import java.util.Set;
 
 
 /**
@@ -20,6 +23,7 @@ public class Item {
     private final ItemBoughtDate boughtDate;
     private final ItemExpiryDate expiryDate;
     // TODO: Implement Item with Tags
+    private final Set<Tag> tagSet;
 
     /**
      * Constructs an item.
@@ -34,13 +38,14 @@ public class Item {
                 ItemQuantity quantity,
                 ItemUnit unit,
                 ItemBoughtDate boughtDate,
-                ItemExpiryDate expiryDate) {
+                ItemExpiryDate expiryDate, Set tagSet) {
         requireAllNonNull(name, quantity, unit, boughtDate, expiryDate);
         this.name = name;
         this.quantity = quantity;
         this.unit = unit;
         this.boughtDate = boughtDate;
         this.expiryDate = expiryDate;
+        this.tagSet = tagSet;
     }
 
     public ItemName getName() {
@@ -63,6 +68,10 @@ public class Item {
         return expiryDate;
     }
 
+    public Set<Tag> getTagSet() {
+        return tagSet;
+    }
+
     /**
      * Returns true if both items have the same name.
      * This defines a weaker notion of equality between two items.
@@ -74,6 +83,23 @@ public class Item {
 
         return otherItem != null
                 && otherItem.getName().equals(name);
+    }
+
+    /**
+     * Returns true if item contains a certain tag.
+     */
+    public boolean containsTag(Tag tag) {
+        if (tagSet.contains(tag)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Adds a tag to the item's tagSet
+     */
+    public void addTag(Tag tag) {
+        tagSet.add(tag);
     }
 
     /**
@@ -98,7 +124,8 @@ public class Item {
                 && otherItem.getQuantity().equals(quantity)
                 && otherItem.getUnit().equals(unit)
                 && otherItem.getBoughtDate().equals(boughtDate)
-                && otherItem.getExpiryDate().equals(expiryDate);
+                && otherItem.getExpiryDate().equals(expiryDate)
+                && otherItem.getTagSet().equals(tagSet);
     }
 
     /**
@@ -107,7 +134,7 @@ public class Item {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, quantity, unit, boughtDate, expiryDate);
+        return Objects.hash(name, quantity, unit, boughtDate, expiryDate,tagSet);
     }
 
     /**
