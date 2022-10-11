@@ -1,7 +1,7 @@
 package seedu.address.logic.parser;
 
 import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.TagCommand;
+import seedu.address.logic.commands.tagcommands.TagCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 import java.util.stream.Stream;

@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.Command;
-import seedu.address.logic.commands.TagCommand;
+import seedu.address.logic.commands.tagcommands.TagCommand;
 import seedu.address.logic.commands.generalcommands.ClearCommand;
 import seedu.address.logic.commands.generalcommands.ExitCommand;
 import seedu.address.logic.commands.generalcommands.HelpCommand;
