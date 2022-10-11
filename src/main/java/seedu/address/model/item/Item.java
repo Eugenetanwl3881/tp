@@ -4,6 +4,7 @@ import seedu.address.model.tag.Tag;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -22,7 +23,6 @@ public class Item {
     private final ItemUnit unit;
     private final ItemBoughtDate boughtDate;
     private final ItemExpiryDate expiryDate;
-    // TODO: Implement Item with Tags
     private final Set<Tag> tagSet;
 
     /**
@@ -38,14 +38,14 @@ public class Item {
                 ItemQuantity quantity,
                 ItemUnit unit,
                 ItemBoughtDate boughtDate,
-                ItemExpiryDate expiryDate, Set tagSet) {
+                ItemExpiryDate expiryDate) {
         requireAllNonNull(name, quantity, unit, boughtDate, expiryDate);
         this.name = name;
         this.quantity = quantity;
         this.unit = unit;
         this.boughtDate = boughtDate;
         this.expiryDate = expiryDate;
-        this.tagSet = tagSet;
+        this.tagSet = new HashSet<>();
     }
 
     public ItemName getName() {
