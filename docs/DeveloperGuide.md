@@ -273,8 +273,7 @@ _{Explain here how the data archiving feature will be implemented}_
 Purchasing managers who are proficient with typing for small F&B businesses
 
 **Value proposition**:
-This application will help small businesses to manage perishable goods within a single inventory
-(no support for multiple inventories).
+Food REM empowers small food and beverage (F&B) restaurants to manage inventory and obtain insights from inventory data.
 
 ### User stories
 
